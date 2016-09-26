@@ -6,7 +6,7 @@ import {
     FormGroup
 } from '@angular/forms';
 
-import { Question } from '../../models';
+import { DynamicQuestion } from './dynamic-question.model';
 
 @Component({
     selector: 'dynamic-question',
@@ -14,7 +14,7 @@ import { Question } from '../../models';
 })
 export class DynamicQuestionComponent {
     @Input() form: FormGroup;
-    @Input() question: Question;
+    @Input() question: DynamicQuestion;
 
     get isValid(): boolean {
         return this.form.controls[this.question.id].valid;

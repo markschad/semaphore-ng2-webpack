@@ -8,7 +8,7 @@ import {
     ReactiveFormsModule
 } from '@angular/forms';
 
-import { Question } from '../../models';
+import { DynamicQuestion } from './dynamic-question.model';
 import { DynamicQuestionComponent } from './dynamic-question.component';
 
 describe('Component: DynamicQuestionComponent', () => {

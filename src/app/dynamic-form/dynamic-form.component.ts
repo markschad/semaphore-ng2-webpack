@@ -9,14 +9,14 @@ import {
     Validators
 } from '@angular/forms';
 
-import { Question } from '../../models';
+import { DynamicQuestion } from './dynamic-question.model';
 
 @Component({
     selector: 'dynamic-form',
     template: require('./dynamic-form.component.html')
 })
 export class DynamicFormComponent implements OnInit {
-    @Input() questions:Array<Question>;
+    @Input() questions:Array<DynamicQuestion>;
 
     formGroup: FormGroup;
     payload: string;
@@ -26,13 +26,13 @@ export class DynamicFormComponent implements OnInit {
         this.payload = '';
     }
 
-    private generateForm(questions: Array<Question>): FormGroup {
+    private generateForm(questions: Array<DynamicQuestion>): FormGroup {
         const formControls = questions.reduce(this.generateControl, {});
 
         return new FormGroup(formControls);
     }
 
-    private generateControl(controls: any, question: Question) {
+    private generateControl(controls: any, question: DynamicQuestion) {
         if (question.required) {
             controls[question.id] = new FormControl(question.value || '', Validators.required);
         } else {

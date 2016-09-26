@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
-import { Question } from '../../models';
+import { DynamicQuestion } from './dynamic-form';
 
 @Component({
     selector: 'dynamic-form-app',
     template: require('./app.component.html')
 })
 export class AppComponent {
-    questions: Array<Question>;
+    questions: Array<DynamicQuestion>;
 
     constructor() {
         this.questions = [
